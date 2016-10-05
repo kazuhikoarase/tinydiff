@@ -12,21 +12,19 @@ public class DiffTest {
   @Test
   public void onp() {
 
-    log(onp("a", "a") );
-    log(onp("a", "aaa") );
-    log(onp("aba", "aca") );
-    log(onp("aaa", "bbb") );
-    log(onp("aaa", "") );
-    log(onp("abc", "bc") );
-    log(onp("abc", "ac") );
+    Assert.assertEquals(0, onp("a", "a") );
+    Assert.assertEquals(2, onp("a", "aaa") );
+    Assert.assertEquals(2, onp("aba", "aca") );
+    Assert.assertEquals(6, onp("aaa", "bbb") );
+    Assert.assertEquals(3, onp("aaa", "") );
+    Assert.assertEquals(1, onp("abc", "bc") );
+    Assert.assertEquals(1, onp("abc", "ac") );
 
-    log(onp("an apple.", "a maple.") );
+    Assert.assertEquals(3, onp("an apple.", "a maple.") );
   }
 
-  private String onp(CharSequence a, CharSequence b) {
-    int onp = new Diff().onp(new CharSequenceDiffComparable(a, b) );
-    return String.format("%10s %10s %5.4f",
-        a, b, 1.0 * onp / (a.length() + b.length() )  );
+  private int onp(CharSequence a, CharSequence b) {
+    return new Diff().onp(new CharSequenceDiffComparable(a, b) );
   }
 
   @Test
@@ -37,7 +35,6 @@ public class DiffTest {
     diff("aaa", "bbb");
     
     diff("aba", "bab");
-    diff("bab", "aba");
     diff("aaa", "aab");
     diff("aab", "aaa");
 
@@ -51,10 +48,14 @@ public class DiffTest {
     diff("aaaa", "aab");
     diff("aaab", "aaa");
 
-    diff("here is an apple.", "here comes a maple.");
-  
+    diff("baba", "bab");
+    diff("bbab", "aba");
+    diff("baaa", "aab");
+    diff("baab", "aaa");
+
     diff("vvaxa", "xffxf");
 
+    diff("here is an apple.", "here comes a maple.");
   }
 
   private void diff(final String l, final String r) {
