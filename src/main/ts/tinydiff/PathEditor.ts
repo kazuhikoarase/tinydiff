@@ -4,7 +4,7 @@ namespace tinydiff {
    * createPathEditor
    * @author Kazuhiko Arase
    */
-  function createPathEditor(
+  export function createPathEditor(
       target : IDiffComparable) : IPathEditor {
     var x = target.getM();
     var y = target.getN();

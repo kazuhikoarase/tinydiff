@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../../../dist/tinydiff.js"></script>
+<script src="../../../../dist/sample.js"></script>
+<style>
+#lText, #rText { width: 300px; height: 200px; }
+.leftOnly { background-color: #eeffee; }
+.rightOnly { background-color: #ffeeee; }
+.both TD, .leftOnly TD:nth-child(1), .rightOnly TD:nth-child(2) {
+  border-style: solid;
+  border-width: 0px 0px 0px 4px;
+  padding: 0px 0px 0px 4px;
+}
+.both TD { border-color: #999999; }
+.leftOnly TD { border-color: #009900; }
+.rightOnly TD { border-color: #990000; }
+</style>
+</head>
+<body>
+  <textarea id="lText"></textarea>
+  <textarea id="rText"></textarea>
+  <br/>
+  <table><tbody id="result"></tbody></table>
+</body>
+</html>

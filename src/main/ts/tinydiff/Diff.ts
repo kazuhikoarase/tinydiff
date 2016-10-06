@@ -8,7 +8,7 @@ namespace tinydiff {
    * createDiff
    * @author Kazuhiko Arase
    */
-  function createDiff() :  IDiff {
+  export function createDiff() : IDiff {
 
     var wrapper : IDiffTargetWrapper = null;
 
@@ -50,3 +50,12 @@ namespace tinydiff {
     };
   }
 }
+
+declare var exports : any;
+declare var module : any;
+
+!function(tinydiff : any) {
+  if (typeof exports === 'object') {
+    module.exports = tinydiff;
+  }
+}(tinydiff);
