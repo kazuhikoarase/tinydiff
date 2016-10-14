@@ -1,5 +1,5 @@
 
-var tinydiff = require('../../../build/tinydiff');
+var tinydiff = require('../../../dist/tinydiff');
 
 exports.onp = function(test) {
 
